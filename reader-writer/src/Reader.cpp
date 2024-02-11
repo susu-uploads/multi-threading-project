@@ -2,8 +2,16 @@
 // Created by mick on 11.02.2024.
 //
 
+#include <iostream>
 #include "../include/Reader.h"
 
-void Reader::read() {
+Reader::Reader(AtomicQueue &queue) : queue(queue) {
+    Reader::experience = 0;
+}
 
+[[noreturn]] void Reader::read() {
+    while (true) {
+        auto number = queue.get();
+        std::cout << number << ' ' << "exp: " << experience++ << '\n';
+    }
 }

@@ -6,9 +6,16 @@
 #define MULTITHREADING_PROJECT_READER_H
 
 
+#include "AtomicQueue.h"
+
 class Reader {
+private:
+    AtomicQueue &queue;
+    int experience;
 public:
-    void read();
+    Reader(AtomicQueue &queue);
+
+    [[noreturn]] void read();
 };
 
 

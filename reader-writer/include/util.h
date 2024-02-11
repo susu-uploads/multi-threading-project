@@ -5,6 +5,6 @@
 #ifndef MULTITHREADING_PROJECT_UTIL_H
 #define MULTITHREADING_PROJECT_UTIL_H
 
-int test();
+[[noreturn]] void reader_writer_simulate();
 
 #endif //MULTITHREADING_PROJECT_UTIL_H

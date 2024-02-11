@@ -6,9 +6,19 @@
 #define MULTITHREADING_PROJECT_WRITER_H
 
 
+#include "AtomicQueue.h"
+
 class Writer {
+private:
+    AtomicQueue &queue;
+    int experience;
+
+    static int next();
+
 public:
-    void write();
+    Writer(AtomicQueue &queue);
+
+    [[noreturn]] void write();
 };
 
 
