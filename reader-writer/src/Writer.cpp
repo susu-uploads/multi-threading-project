@@ -6,7 +6,7 @@
 #include <iostream>
 #include "../include/Writer.h"
 
-Writer::Writer(AtomicQueue &queue) : queue(queue) {
+Writer::Writer(Buffer &queue) : queue(queue) {
     Writer::experience = 0;
 }
 

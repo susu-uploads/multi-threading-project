@@ -2,7 +2,7 @@
 // Created by mick on 11.02.2024.
 //
 
-#include "AtomicQueue.h"
+#include "Buffer.h"
 #include <mutex>
 
 using namespace std;
@@ -10,12 +10,12 @@ using namespace std;
 size_t q_size;
 size_t q_capacity;
 
-AtomicQueue::AtomicQueue(size_t capacity) {
+Buffer::Buffer(size_t capacity) {
     q_capacity = capacity;
     q_size = 0;
 }
 
-void AtomicQueue::put(int number) {
+void Buffer::put(int number) {
     // Wait for buffer less than max
     if (q_size >= q_capacity) {
         unique_lock<mutex> lock(write_mutex);
@@ -37,7 +37,7 @@ void AtomicQueue::put(int number) {
     able_to_read.notify_one();
 }
 
-int AtomicQueue::get() {
+int Buffer::get() {
     int number;
 
     // Wait for buffer more than min

@@ -5,7 +5,7 @@
 #include <iostream>
 #include "../include/Reader.h"
 
-Reader::Reader(AtomicQueue &queue) : queue(queue) {
+Reader::Reader(Buffer &queue) : queue(queue) {
     Reader::experience = 0;
 }
 

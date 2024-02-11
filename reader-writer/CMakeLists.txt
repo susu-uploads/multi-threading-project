@@ -4,14 +4,14 @@ set(
         src/Reader.cpp
         src/Writer.cpp
         src/util.cpp
-        src/AtomicQueue.cpp
+        src/Buffer.cpp
         src/util.cpp)
 set(
         HEADER_FILES
         include/Reader.h
         include/Writer.h
         include/util.h
-        include/AtomicQueue.h)
+        include/Buffer.h)
 
 add_library(${LIBRARY_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
 

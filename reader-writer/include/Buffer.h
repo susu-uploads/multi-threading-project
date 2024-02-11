@@ -2,15 +2,15 @@
 // Created by mick on 11.02.2024.
 //
 
-#ifndef MULTITHREADING_PROJECT_ATOMICQUEUE_H
-#define MULTITHREADING_PROJECT_ATOMICQUEUE_H
+#ifndef MULTITHREADING_PROJECT_BUFFER_H
+#define MULTITHREADING_PROJECT_BUFFER_H
 
 #include <mutex>
 #include <queue>
 #include <condition_variable>
 
 
-class AtomicQueue {
+class Buffer {
 private:
     std::mutex m;
     std::queue<int> queue;
@@ -19,7 +19,7 @@ private:
     std::condition_variable able_to_read;
     std::condition_variable able_to_write;
 public:
-    explicit AtomicQueue(std::size_t capacity);
+    explicit Buffer(std::size_t capacity);
 
     void put(int number);
 
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif //MULTITHREADING_PROJECT_ATOMICQUEUE_H
+#endif //MULTITHREADING_PROJECT_BUFFER_H

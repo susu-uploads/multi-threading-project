@@ -3,7 +3,7 @@
 //
 
 #include <thread>
-#include <AtomicQueue.h>
+#include <Buffer.h>
 #include <Writer.h>
 #include <Reader.h>
 
@@ -13,7 +13,7 @@ using namespace chrono_literals;
 const std::size_t QUEUE_SIZE = 10;
 
 void reader_writer_simulate() {
-    auto queue = AtomicQueue{QUEUE_SIZE};
+    auto queue = Buffer{QUEUE_SIZE};
     auto w1 = Writer{queue};
     auto w2 = Writer{queue};
     auto r1 = Reader{queue};
