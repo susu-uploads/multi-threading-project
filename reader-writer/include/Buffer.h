@@ -6,21 +6,19 @@
 #define MULTITHREADING_PROJECT_BUFFER_H
 
 #include <mutex>
+#include <semaphore>
 #include <queue>
 #include <condition_variable>
 
+const int BUFFER_SIZE = 10;
 
 class Buffer {
 private:
-    std::mutex m;
-    std::queue<int> queue;
-    std::mutex read_mutex;
-    std::mutex write_mutex;
-    std::condition_variable able_to_read;
-    std::condition_variable able_to_write;
+    std::mutex mlock;
+    std::counting_semaphore<BUFFER_SIZE> empty_cells{BUFFER_SIZE};
+    std::counting_semaphore<BUFFER_SIZE> filled_cells{0};
+    std::queue<int> storage;
 public:
-    explicit Buffer(std::size_t capacity);
-
     void put(int number);
 
     int get();

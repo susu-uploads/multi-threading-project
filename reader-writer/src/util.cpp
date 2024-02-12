@@ -10,21 +10,19 @@
 using namespace std;
 using namespace chrono_literals;
 
-const std::size_t QUEUE_SIZE = 10;
-
 void reader_writer_simulate() {
-    auto queue = Buffer{QUEUE_SIZE};
+    auto queue = Buffer{};
     auto w1 = Writer{queue};
     auto w2 = Writer{queue};
     auto r1 = Reader{queue};
 
-    // Init readers
+    // Init writers
     thread t1(&Writer::write, &w1);
     thread t2(&Writer::write, &w2);
-    // Optional sleep in order buffer to fill
-    // this_thread::sleep_for(1000ms);
+    // Optional sleep in order for buffer to fill
+    this_thread::sleep_for(1000ms);
 
-    // Init writer
+    // Init reader
     thread t3(&Reader::read, &r1);
 
     t1.join();

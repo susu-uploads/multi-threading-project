@@ -3,7 +3,6 @@
 //
 
 #include <random>
-#include <iostream>
 #include "../include/Writer.h"
 
 Writer::Writer(Buffer &queue) : queue(queue) {

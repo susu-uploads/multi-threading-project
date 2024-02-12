@@ -4,8 +4,7 @@ set(
         src/Reader.cpp
         src/Writer.cpp
         src/util.cpp
-        src/Buffer.cpp
-        src/util.cpp)
+        src/Buffer.cpp)
 set(
         HEADER_FILES
         include/Reader.h
