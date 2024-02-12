@@ -10,7 +10,9 @@ set(
 project(${PROJECT_NAME})
 
 add_subdirectory(reader-writer)
+add_subdirectory(file-producer-consumer)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC reader-writer)
+target_link_libraries(${PROJECT_NAME} PUBLIC file-producer-consumer)
