@@ -1,17 +1,19 @@
-set(LIBRARY_NAME reader-writer)
+cmake_minimum_required(VERSION 3.17)
+
+set(CMAKE_CXX_STANDARD 20)
+set(PROJECT_NAME reader_writer)
 set(
         SOURCE_FILES
         src/Reader.cpp
         src/Writer.cpp
-        src/util.cpp
-        src/Buffer.cpp)
+        src/Buffer.cpp
+        main.cpp)
 set(
         HEADER_FILES
         include/Reader.h
         include/Writer.h
-        include/util.h
         include/Buffer.h)
 
-add_library(${LIBRARY_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
+project(${PROJECT_NAME})
 
-target_include_directories(${LIBRARY_NAME} PUBLIC include)
+add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES})

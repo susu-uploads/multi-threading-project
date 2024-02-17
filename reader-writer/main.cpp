@@ -1,16 +1,12 @@
-//
-// Created by mick on 12.02.2024.
-//
-
+#include "include/Buffer.h"
+#include "include/Writer.h"
+#include "include/Reader.h"
 #include <thread>
-#include <Buffer.h>
-#include <Writer.h>
-#include <Reader.h>
 
 using namespace std;
 using namespace chrono_literals;
 
-void reader_writer_simulate() {
+int main() {
     auto queue = Buffer{};
     auto w1 = Writer{queue};
     auto w2 = Writer{queue};
@@ -28,4 +24,5 @@ void reader_writer_simulate() {
     t1.join();
     t2.join();
     t3.join();
+    return 0;
 }

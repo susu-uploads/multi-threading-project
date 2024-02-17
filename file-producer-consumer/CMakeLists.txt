@@ -1,11 +1,15 @@
-set(LIBRARY_NAME file-producer-consumer)
+cmake_minimum_required(VERSION 3.17)
+
+set(CMAKE_CXX_STANDARD 20)
+set(PROJECT_NAME file_producer_consumer)
 set(
         SOURCE_FILES
-        src/util.cpp)
+        src/simulator.cpp
+        main.cpp)
 set(
         HEADER_FILES
-        include/util.h)
+        include/simulator.h)
 
-add_library(${LIBRARY_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
+project(${PROJECT_NAME})
 
-target_include_directories(${LIBRARY_NAME} PUBLIC include)
+add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES})
