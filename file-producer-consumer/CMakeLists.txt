@@ -4,11 +4,13 @@ set(CMAKE_CXX_STANDARD 20)
 set(PROJECT_NAME file_producer_consumer)
 set(
         SOURCE_FILES
-        src/simulator.cpp
-        main.cpp)
+        main.cpp
+        src/Producer.cpp
+        src/Consumer.cpp src/Message.cpp)
 set(
         HEADER_FILES
-        include/simulator.h)
+        include/Producer.h
+        include/Consumer.h include/Message.h)
 
 project(${PROJECT_NAME})
 

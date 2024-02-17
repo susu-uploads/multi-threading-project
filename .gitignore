@@ -1,2 +1,3 @@
-/cmake-build-debug/
 /.idea/
+/file-producer-consumer/cmake-build-debug/
+/reader-writer/cmake-build-debug/
