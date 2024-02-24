@@ -16,7 +16,7 @@ int main() {
     thread t1(&Writer::write, &w1);
     thread t2(&Writer::write, &w2);
     // Optional sleep in order for buffer to fill
-    this_thread::sleep_for(1000ms);
+    // this_thread::sleep_for(1000ms);
 
     // Init reader
     thread t3(&Reader::read, &r1);

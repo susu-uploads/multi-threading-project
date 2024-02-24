@@ -6,13 +6,14 @@
 #define FILE_PRODUCER_CONSUMER_CONSUMER_H
 
 #include <semaphore>
+#include "Message.h"
 
 class Consumer {
 private:
-    std::binary_semaphore *able_to_consume;
-    const char *shm_path;
+    const char *sh_s;
+    const char *sh_m;
 public:
-    explicit Consumer(std::binary_semaphore *semaphore, const char *path);
+    explicit Consumer(const char *s, const char *p);
 
     void consume();
 };

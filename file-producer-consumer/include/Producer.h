@@ -10,10 +10,10 @@
 
 class Producer {
 private:
-    std::binary_semaphore *able_to_produce;
-    const char *shm_path;
+    const char *sh_s;
+    const char *sh_m;
 public:
-    explicit Producer(std::binary_semaphore *semaphore, const char *path);
+    explicit Producer(const char *s, const char *p);
 
     void produce();
 };

@@ -6,7 +6,7 @@ set(
         SOURCE_FILES
         main.cpp
         src/Producer.cpp
-        src/Consumer.cpp src/Message.cpp)
+        src/Consumer.cpp)
 set(
         HEADER_FILES
         include/Producer.h

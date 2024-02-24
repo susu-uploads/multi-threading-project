@@ -9,9 +9,7 @@
 
 struct Message {
     pid_t pid;
-    std::string payload;
-
-    Message(pid_t pid, std::string &payload);
+    int value;
 };
 
 
