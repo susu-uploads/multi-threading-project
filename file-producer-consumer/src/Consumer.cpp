@@ -13,11 +13,11 @@ using namespace std;
 
 void Consumer::consume() {
     // Wait for producer
-    sem_t *sem = sem_open(sh_s, O_CREAT, 0644, 0);
+    sem_t *sem = sem_open(sh_sem_name, O_CREAT, 0644, 0);
     sem_wait(sem);
 
     // Get access to shared memory
-    int shmFd = shm_open(sh_m, O_RDWR, S_IRUSR | S_IWUSR);
+    int shmFd = shm_open(sh_mem_name, O_RDWR, S_IRUSR | S_IWUSR);
     ftruncate(shmFd, sizeof(Message));
     auto *msg_ptr = (Message*)mmap(nullptr, sizeof(Message), PROT_READ | PROT_WRITE, MAP_SHARED, shmFd, 0);
 
@@ -31,5 +31,5 @@ void Consumer::consume() {
     sem_destroy(sem);
 }
 
-Consumer::Consumer(const char *s, const char *p) : sh_s(s), sh_m(p) {}
+Consumer::Consumer(const char *s, const char *p) : sh_sem_name(s), sh_mem_name(p) {}
 

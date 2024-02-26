@@ -7,8 +7,8 @@
 
 class Consumer {
 private:
-    const char *sh_s;
-    const char *sh_m;
+    const char *sh_sem_name;
+    const char *sh_mem_name;
 public:
     explicit Consumer(const char *s, const char *p);
 

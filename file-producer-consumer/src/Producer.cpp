@@ -18,12 +18,12 @@ void Producer::produce() {
 
     // Write into shared memory
     msg_ptr->pid = getpid();
-    msg_ptr->value = 10;
+    msg_ptr->value = 18;
     munmap(msg_ptr, sizeof(Message));
     close(shmFd);
 
     // Optional wait
-    sleep(0);
+    sleep(3);
 
     // Notify consumer
     sem_t *sem = sem_open(sh_s, O_CREAT, 0644, 0);

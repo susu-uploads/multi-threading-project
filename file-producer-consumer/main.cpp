@@ -4,10 +4,11 @@
 
 #include <unistd.h>
 #include "include/Producer.h"
+#include <stdio.h>
 #include "include/Consumer.h"
 
-#define SHARED_OBJ_NAME "/sh_mem"
-#define SHARED_SEM_NAME "/sh_sem"
+#define SHARED_OBJ_NAME "/sh_mem_name"
+#define SHARED_SEM_NAME "/sh_sem_name"
 
 int main() {
     pid_t pid = fork();
