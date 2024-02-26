@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <iostream>
+#include <semaphore>
 #include "../include/Producer.h"
 #include "../include/Message.h"
 
@@ -17,12 +18,12 @@ void Producer::produce() {
 
     // Write into shared memory
     msg_ptr->pid = getpid();
-    msg_ptr->value = 15;
+    msg_ptr->value = 10;
     munmap(msg_ptr, sizeof(Message));
     close(shmFd);
 
     // Optional wait
-    sleep(10);
+    sleep(0);
 
     // Notify consumer
     sem_t *sem = sem_open(sh_s, O_CREAT, 0644, 0);

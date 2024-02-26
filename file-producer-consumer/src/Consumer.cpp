@@ -5,7 +5,9 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <iostream>
+#include <semaphore>
 #include "../include/Consumer.h"
+#include "../include/Message.h"
 
 using namespace std;
 

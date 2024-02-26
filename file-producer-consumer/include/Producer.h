@@ -5,9 +5,6 @@
 #ifndef FILE_PRODUCER_CONSUMER_PRODUCER_H
 #define FILE_PRODUCER_CONSUMER_PRODUCER_H
 
-
-#include <semaphore>
-
 class Producer {
 private:
     const char *sh_s;

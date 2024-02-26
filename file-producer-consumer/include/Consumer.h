@@ -5,9 +5,6 @@
 #ifndef FILE_PRODUCER_CONSUMER_CONSUMER_H
 #define FILE_PRODUCER_CONSUMER_CONSUMER_H
 
-#include <semaphore>
-#include "Message.h"
-
 class Consumer {
 private:
     const char *sh_s;
