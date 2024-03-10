@@ -1,3 +1,5 @@
 /.idea/
 /file-producer-consumer/cmake-build-debug/
 /reader-writer/cmake-build-debug/
+/openmp-lab/cmake-build-debug/
+/pipe-ipc/cmake-build-debug/
