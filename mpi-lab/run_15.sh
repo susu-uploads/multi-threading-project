@@ -1,0 +1,1 @@
+mpiexec -n 8 ./cmake-build-debug/mpi_lab_lab_15.cpp

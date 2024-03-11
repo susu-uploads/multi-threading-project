@@ -4,7 +4,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(PROJECT_NAME mpi_lab)
 set(
         SOURCE_FILES
-        lab_14.cpp)
+        lab_14.cpp
+        lab_15.cpp)
 
 project(${PROJECT_NAME})
 
