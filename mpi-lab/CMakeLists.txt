@@ -5,7 +5,9 @@ set(PROJECT_NAME mpi_lab)
 set(
         SOURCE_FILES
         lab_14.cpp
-        lab_15.cpp)
+        lab_15.cpp
+        lab_16.cpp
+        lab_17.cpp)
 
 project(${PROJECT_NAME})
 
@@ -20,7 +22,7 @@ include_directories(SYSTEM ${MPI_INCLUDE_PATH})
 if (MPI_CXX_FOUND)
     foreach (X IN LISTS SOURCE_FILES)
         set(NAME ${PROJECT_NAME}_${X})
-        target_link_libraries(${NAME} PUBLIC MPI::MPI_CXX)
+        target_link_libraries(${NAME} PRIVATE MPI::MPI_CXX)
         message(STATUS "${NAME} mpi'd successfully")
     endforeach ()
 endif ()

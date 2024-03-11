@@ -3,20 +3,23 @@
 //
 
 #include <mpi.h>
-
-int total, rank;
+#include <cstdio>
 
 int main() {
+    // Initialize the MPI environment
     MPI_Init(nullptr, nullptr);
-    MPI_Comm_size(MPI_COMM_WORLD, &total);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    // Find out rank, size
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-    if (rank == 0) {
-        printf("%d processes\n", total);
-    } else if (rank % 2 == 0) {
-        printf("I am %d process: FIRST\n", rank);
+    if (world_rank == 0) {
+        printf("%d processes\n", world_size);
+    } else if (world_rank % 2 == 0) {
+        printf("I am %d process: FIRST\n", world_rank);
     } else {
-        printf("I am %d process: SECOND\n", rank);
+        printf("I am %d process: SECOND\n", world_rank);
     }
 
     MPI_Finalize();
