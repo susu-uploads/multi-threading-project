@@ -4,14 +4,15 @@
 
 #include <cstdio>
 #include <omp.h>
+#include <unistd.h>
 
 int main() {
-    int rank = -1;
-    #pragma omp parallel default(none) private(rank)
+    int rank;
+    #pragma omp parallel default(none) shared(rank)
     {
         rank = omp_get_thread_num();
+        sleep(1);
         printf("I am %d thread.\n", rank);
     }
-    printf("Rank is %d", rank);
     return 0;
 }

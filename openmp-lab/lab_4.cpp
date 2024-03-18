@@ -9,12 +9,14 @@ int main() {
     int sum = 0;
     int N = 10;
 
-    #pragma omp parallel for reduction(+:sum) default(none) shared(N) num_threads(4)
-    for (int i = 1; i < N; ++i) {
-        sum += i;
+    #pragma omp parallel reduction(+:sum) default(none) shared(N)
+    {
+        #pragma omp for
+        for (int i = 1; i < N; ++i) {
+            sum += i;
+        }
         printf("[%d]: Sum = %d\n", omp_get_thread_num(), sum);
     }
-
     printf("Sum = %d", sum);
     return 0;
 }
