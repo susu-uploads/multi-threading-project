@@ -8,7 +8,7 @@
 
 int main() {
     int rank;
-    #pragma omp parallel default(none) shared(rank)
+    #pragma omp parallel default(none) private(rank)
     {
         rank = omp_get_thread_num();
         sleep(1);
